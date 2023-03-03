@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Accordion,
   AccordionItemHeading,
@@ -23,13 +24,15 @@ const Forecast = ({ data }) => {
     WEEK_DAYS.slice(0, dayInAWeek)
   ); //next 7 days
 
+  const [showAllDays, setShowAllDays] = useState(false);
+
   return (
     <>
       <label className="title">Daily</label>
       <Accordion allowZeroExpanded>
-        {/*allow all the accordion to be clossed (allowZeroExpanded)*/}
-        {data.list.splice(0, 3).map((item, idx) => (
-          <AccordionItem>
+        {/*allow all the accordion to be closed (allowZeroExpanded)*/}
+        {data.list.slice(0, showAllDays ? 7 : 3).map((item, idx) => (
+          <AccordionItem key={idx}>
             <AccordionItemHeading>
               <AccordionItemButton>
                 <div className="daily-item">
@@ -79,7 +82,13 @@ const Forecast = ({ data }) => {
             </AccordionItemPanel>
           </AccordionItem>
         ))}
-        <AccordionItem></AccordionItem>
+        {data.list.length > 3 && (
+          <AccordionItem>
+            <button onClick={() => setShowAllDays(!showAllDays)}>
+              {showAllDays ? "SEE LESS" : "SEE MORE"}
+            </button>
+          </AccordionItem>
+        )}
       </Accordion>
     </>
   );

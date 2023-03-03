@@ -15,6 +15,10 @@
   padding: 5px 20px;
 }
 
+.daily-item:hover {
+  background-color: #bbdffb;
+}
+
 .icon-small {
   width: 40px;
 }
@@ -57,9 +61,20 @@
 }
 
 .daily-details-grid-item label:first-child {
-  color: #757575;
+  color: #bbdffb;
+  font-weight: 400;
 }
 
 .daily-details-grid-item label:last-child {
+  color: #212121;
+  font-weight: 500;
+}
+
+button {
+  background-color: #212121;
+}
+
+button:hover {
+  background-color: white;
   color: #212121;
 }

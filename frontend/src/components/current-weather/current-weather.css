@@ -15,6 +15,14 @@
   align-items: center;
 }
 
+.day {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  margin: 1;
+  letter-spacing: 1px;
+}
+
 .city {
   font-weight: 600;
   font-size: 18px;
